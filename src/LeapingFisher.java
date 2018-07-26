@@ -37,9 +37,13 @@ public class LeapingFisher extends Script implements RenderListener {
     public static int fishing = Skills.getCurrentLevel(Skill.FISHING);
     public static int agility = Skills.getCurrentLevel(Skill.AGILITY);
     public static int strength = Skills.getCurrentLevel(Skill.STRENGTH);
-    public static final int startfish = Skills.getCurrentLevel(Skill.FISHING);
-    public static final int startagil = Skills.getCurrentLevel(Skill.AGILITY);
-    public static final int startstr = Skills.getCurrentLevel(Skill.STRENGTH);
+    public static final int startFish = Skills.getCurrentLevel(Skill.FISHING);
+    public static final int startAgil = Skills.getCurrentLevel(Skill.AGILITY);
+    public static final int startStr = Skills.getCurrentLevel(Skill.STRENGTH);
+    public static final int fishXp = Skills.getExperience(Skill.FISHING);
+    public static final int strXp = Skills.getExperience(Skill.STRENGTH);
+    public static final int agilXp = Skills.getExperience(Skill.AGILITY);
+
 
 
     @Override
@@ -105,13 +109,13 @@ public class LeapingFisher extends Script implements RenderListener {
         g.setFont(font2);
         g.drawString("Leaping Fisher", 200, 355);
         g.setFont(font3);
-        g.drawString("Status: " + status, 300, 75);
-        g.drawString("Fishing Level: " + Skills.getCurrentLevel(Skill.FISHING), 75, 405);
-        g.drawString("Agility Level: " + Skills.getCurrentLevel(Skill.AGILITY), 75, 430);
-        g.drawString("Strength Level: " + Skills.getCurrentLevel(Skill.STRENGTH), 75, 455);
-        g.drawString("Fishing Level(s) gained: " + (Skills.getCurrentLevel(Skill.FISHING) - startfish), 300, 405);
-        g.drawString("Agility Level(s) gained: " + (Skills.getCurrentLevel(Skill.AGILITY) - startagil), 300, 430);
-        g.drawString("Strength Level(s) gained: " + (Skills.getCurrentLevel(Skill.STRENGTH) - startstr), 300, 455);
+        g.drawString("Status: " + status, 300, 380);
+        g.drawString("Fishing Level: " + Skills.getCurrentLevel(Skill.FISHING) + "(" +(Skills.getCurrentLevel(Skill.FISHING) - startFish) + ")", 75, 405);
+        g.drawString("Strength Level: " + Skills.getCurrentLevel(Skill.STRENGTH) + "(" +(Skills.getCurrentLevel(Skill.STRENGTH) - startStr) + ")", 75, 430);
+        g.drawString("Agility Level: " + Skills.getCurrentLevel(Skill.AGILITY) + "(" +(Skills.getCurrentLevel(Skill.AGILITY) - startAgil) + ")", 75, 455);
+        g.drawString((Skills.getExperience(Skill.FISHING) - fishXp) + " Fishing experience gained", 300, 405);
+        g.drawString((Skills.getExperience(Skill.STRENGTH) - strXp) + " Strength experience gained", 300, 430);
+        g.drawString((Skills.getExperience(Skill.AGILITY) - agilXp) + " Agility experience gained", 300, 455);
 
     }
 

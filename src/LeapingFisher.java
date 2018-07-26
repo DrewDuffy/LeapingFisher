@@ -11,16 +11,25 @@ import org.rspeer.script.ScriptMeta;
 import org.rspeer.ui.Log;
 
 
-@ScriptMeta(developer = "werd", desc = "Barbarian Outpost fishing bot. Have feathers and barbarian rod in inventory.", name = "Leaping-Fisher")
+@ScriptMeta(developer = "werd", desc = "Barbarian Outpost fishing bot. Have feathers and barbarian rod in inventory.", name = "Leaping Fisher")
 public class LeapingFisher extends Script {
-
+    //The Barbarian Outpost fishing spot
     public static final Position BARB_POS = new Position(2498,3507);
 
     // Group together all the fish in an array
     public static final int[] FISH = {11330, 11328, 11332};
-    public static String status = "";
+    public static String status;
+
+    @Override
+    public void onStart() {
+        //When the script is started the segment of code in this method will be ran once.
+
+    }
+
+
     @Override
     public int loop() {
+        // what is repeated when the script is running
         if(!Movement.isRunEnabled()){
             if (Movement.getRunEnergy() > 20){
                 Movement.toggleRun(true);
@@ -48,14 +57,20 @@ public class LeapingFisher extends Script {
 
         //if inventory is full, drop all the fish
         if(Inventory.isFull()){
-            while(Inventory.contains(FISH)){
-                Inventory.getFirst(FISH).interact("Drop");
-                Time.sleep(100);
-                status = "Dropping";
-                Log.info(status);
+                while (Inventory.contains(FISH)){
+                    Inventory.getFirst(FISH).interact("Drop");
+                    Time.sleep(100);
+                    status = "Dropping";
+                    Log.info(status);
             }
         }
         return 1000;
+    }
+
+    @Override
+    public void onStop() {
+        //When the script is stopped the segment of code in this method will be ran once.
+
     }
 
 }

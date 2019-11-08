@@ -1,6 +1,5 @@
 # LeapingFisher
 
-'##################
-'#  LAST UPDATED  #
-'#  JULY 26, 2018 #
-'##################
+
+LAST UPDATED:
+JULY 26, 2018 
